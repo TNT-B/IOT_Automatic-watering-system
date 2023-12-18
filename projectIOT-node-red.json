@@ -1,0 +1,1146 @@
+[
+    {
+        "id": "cec0b11c68e784c4",
+        "type": "tab",
+        "label": "IoT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5a3e0f8f12b27b84",
+        "type": "ui_gauge",
+        "z": "cec0b11c68e784c4",
+        "name": "",
+        "group": "2cea9daebd0ec97a",
+        "order": 6,
+        "width": 6,
+        "height": 8,
+        "gtype": "wave",
+        "title": "Water Level",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "8b2f79799605b11d",
+        "type": "function",
+        "z": "cec0b11c68e784c4",
+        "name": "Water Level",
+        "func": "msg.payload = msg.payload.water;\nmsg.topic = 'Water Level'\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1260,
+        "wires": [
+            [
+                "5a3e0f8f12b27b84"
+            ]
+        ]
+    },
+    {
+        "id": "fa50cadca6f04b63",
+        "type": "function",
+        "z": "cec0b11c68e784c4",
+        "name": "Temperature",
+        "func": "msg.payload = msg.payload.temp;\nmsg.topic = 'Temperature';\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 1000,
+        "wires": [
+            [
+                "5db32c42281816e4",
+                "9bd240bdc5c6d20f"
+            ]
+        ]
+    },
+    {
+        "id": "68fb2f35084ba2f7",
+        "type": "function",
+        "z": "cec0b11c68e784c4",
+        "name": "Humidity",
+        "func": "msg.payload = msg.payload.humid;\nmsg.topic = 'Humidity'\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 920,
+        "wires": [
+            [
+                "e458240bbbcd6be7"
+            ]
+        ]
+    },
+    {
+        "id": "e458240bbbcd6be7",
+        "type": "ui_gauge",
+        "z": "cec0b11c68e784c4",
+        "name": "Gauge : Humidity",
+        "group": "2cea9daebd0ec97a",
+        "order": 5,
+        "width": 8,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#1a25ab",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "5db32c42281816e4",
+        "type": "ui_level",
+        "z": "cec0b11c68e784c4",
+        "group": "2cea9daebd0ec97a",
+        "order": 4,
+        "width": 3,
+        "height": 8,
+        "name": "",
+        "label": "",
+        "colorHi": "#e60000",
+        "colorWarn": "#ff9900",
+        "colorNormal": "#00b3a7",
+        "colorOff": "#5c5c5c",
+        "min": 0,
+        "max": 100,
+        "segWarn": "10",
+        "segHigh": "50",
+        "unit": "Celsius",
+        "layout": "sv",
+        "channelA": "",
+        "channelB": "",
+        "decimals": 0,
+        "animations": "soft",
+        "shape": 2,
+        "colorschema": "rainbow",
+        "textoptions": "custom",
+        "colorText": "#eeeeee",
+        "fontLabel": "1",
+        "fontValue": "3",
+        "fontSmall": "",
+        "colorFromTheme": true,
+        "textAnimations": false,
+        "hideValue": false,
+        "tickmode": "off",
+        "peakmode": false,
+        "property": "payload",
+        "peaktime": 3000,
+        "x": 910,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "ba03b140130d4a14",
+        "type": "ui_gauge",
+        "z": "cec0b11c68e784c4",
+        "name": "Gauge : Soil Moisture",
+        "group": "2cea9daebd0ec97a",
+        "order": 7,
+        "width": 8,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Soil Moisture",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#1a25ab",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 980,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "a632fe940826acdd",
+        "type": "ui_button",
+        "z": "cec0b11c68e784c4",
+        "name": "Watering",
+        "group": "2cea9daebd0ec97a",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Watering",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 100,
+        "y": 2060,
+        "wires": [
+            [
+                "9b61fd2fe7033b6a",
+                "b2f249f784a1587b",
+                "f08beaa26da3d8ac"
+            ]
+        ]
+    },
+    {
+        "id": "4e74a04a7a5a2f8b",
+        "type": "function",
+        "z": "cec0b11c68e784c4",
+        "name": "Soil Moisture",
+        "func": "msg.payload = msg.payload.soil;\nmsg.topic = 'Soil Moisture'\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1140,
+        "wires": [
+            [
+                "ba03b140130d4a14",
+                "9bd240bdc5c6d20f"
+            ]
+        ]
+    },
+    {
+        "id": "9bd240bdc5c6d20f",
+        "type": "ui_chart",
+        "z": "cec0b11c68e784c4",
+        "name": "History : Humidity & Soil Moisture",
+        "group": "2cea9daebd0ec97a",
+        "order": 10,
+        "width": 17,
+        "height": 8,
+        "label": "Temperature & Soil Moisture",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "No Data Yet",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": "",
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1020,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7b37510e9ab1c29f",
+        "type": "function",
+        "z": "cec0b11c68e784c4",
+        "name": "Get date",
+        "func": "var d = new Date(msg.payload);\nvar day=d.getDate();\nvar month=d.getMonth();\nvar year=d.getFullYear();\nif(day<=9)\nday=\"0\"+day;\nmonth=month+1;\nvar date_out= day+\"/\"+month+\"/\"+year;\nmsg.payload = date_out.toString();\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 1420,
+        "wires": [
+            [
+                "9df9b5cbbc8028bc"
+            ]
+        ]
+    },
+    {
+        "id": "9df9b5cbbc8028bc",
+        "type": "ui_text",
+        "z": "cec0b11c68e784c4",
+        "group": "2cea9daebd0ec97a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Date Display",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "Lucida Sans Unicode,Lucida Grande,sans-serif",
+        "fontSize": "24",
+        "color": "#000000",
+        "x": 830,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "90b5741295d1af97",
+        "type": "inject",
+        "z": "cec0b11c68e784c4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 370,
+        "y": 1420,
+        "wires": [
+            [
+                "7b37510e9ab1c29f"
+            ]
+        ]
+    },
+    {
+        "id": "a00136a6ecddf5d9",
+        "type": "ui_form",
+        "z": "cec0b11c68e784c4",
+        "name": "Log In",
+        "label": "",
+        "group": "e61b7c40b059ea4c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Username",
+                "value": "username",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Password",
+                "value": "password",
+                "type": "password",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "username": "",
+            "password": ""
+        },
+        "payload": "",
+        "submit": "Log In",
+        "cancel": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 150,
+        "y": 720,
+        "wires": [
+            [
+                "cdfa948cb1465965"
+            ]
+        ]
+    },
+    {
+        "id": "53a6aef566ad9df0",
+        "type": "function",
+        "z": "cec0b11c68e784c4",
+        "name": "Verification",
+        "func": "if (Object.keys(msg.payload).length !== 0) {\n    flow.set('account', msg.payload);\n    msg.payload = 0;\n} else {\n    msg.payload = 1;\n}\n\n\nif (msg.payload == 0) {\n    var currentsocketid = flow.get(\"clientid\") || undefined;\n    if (currentsocketid !== undefined && currentsocketid !== msg.socketid) msg.payload = 2;\n}\n\n// keep the original socketid from msg.socketid;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 720,
+        "wires": [
+            [
+                "de0ed00303d1d278"
+            ]
+        ]
+    },
+    {
+        "id": "de0ed00303d1d278",
+        "type": "switch",
+        "z": "cec0b11c68e784c4",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 670,
+        "y": 720,
+        "wires": [
+            [
+                "1fb10fb8a4fb3f0c"
+            ],
+            [
+                "cb39fa636a955f4e"
+            ],
+            [
+                "6436fa2a16c8a9df"
+            ]
+        ]
+    },
+    {
+        "id": "cb39fa636a955f4e",
+        "type": "function",
+        "z": "cec0b11c68e784c4",
+        "name": "Wrong info",
+        "func": "msg.payload = \"Wrong username or password\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 720,
+        "wires": [
+            [
+                "8033dabd0367d56f"
+            ]
+        ]
+    },
+    {
+        "id": "6436fa2a16c8a9df",
+        "type": "function",
+        "z": "cec0b11c68e784c4",
+        "name": "System in use",
+        "func": "msg.payload = \"System is used by other user\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 760,
+        "wires": [
+            [
+                "8033dabd0367d56f"
+            ]
+        ]
+    },
+    {
+        "id": "8033dabd0367d56f",
+        "type": "ui_toast",
+        "z": "cec0b11c68e784c4",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Failed",
+        "name": "Failure Dialog",
+        "x": 1120,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1fb10fb8a4fb3f0c",
+        "type": "change",
+        "z": "cec0b11c68e784c4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"show\":[\"Home_Dashboard\"],\"hide\":[\"Home_LogIn\"]}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 880,
+        "y": 680,
+        "wires": [
+            [
+                "8c9e01658be8eba3"
+            ]
+        ]
+    },
+    {
+        "id": "8c9e01658be8eba3",
+        "type": "ui_ui_control",
+        "z": "cec0b11c68e784c4",
+        "name": "",
+        "events": "change",
+        "x": 1120,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8f94713e42354de9",
+        "type": "change",
+        "z": "cec0b11c68e784c4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"show\":[\"Home_LogIn\"],\"hide\":[\"Home_Dashboard\"]}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 880,
+        "y": 540,
+        "wires": [
+            [
+                "8c9e01658be8eba3"
+            ]
+        ]
+    },
+    {
+        "id": "b696087c68f8ac70",
+        "type": "inject",
+        "z": "cec0b11c68e784c4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "180",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Start",
+        "payloadType": "str",
+        "x": 610,
+        "y": 540,
+        "wires": [
+            [
+                "8f94713e42354de9"
+            ]
+        ]
+    },
+    {
+        "id": "cdfa948cb1465965",
+        "type": "mongodb3 in",
+        "z": "cec0b11c68e784c4",
+        "service": "_ext_",
+        "configNode": "0ad8da39221eb9f1",
+        "name": "Users",
+        "collection": "users",
+        "operation": "findOne",
+        "x": 310,
+        "y": 720,
+        "wires": [
+            [
+                "53a6aef566ad9df0"
+            ]
+        ]
+    },
+    {
+        "id": "5413295fd1fbdf96",
+        "type": "mqtt in",
+        "z": "cec0b11c68e784c4",
+        "name": "List Sensors",
+        "topic": "iot12/list_sensor_values",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "fed5f8415e2c806e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 900,
+        "wires": [
+            [
+                "d32208a8ae35b1b3"
+            ]
+        ]
+    },
+    {
+        "id": "d32208a8ae35b1b3",
+        "type": "function",
+        "z": "cec0b11c68e784c4",
+        "name": "function 4",
+        "func": "var InputString = msg.payload;\nvar SensorArray = InputString.split(\",\");\n\nvar Soil = Number(SensorArray[0]);\nvar Water = Number(SensorArray[1]);\nvar Temp = Number(SensorArray[2]);\nvar Humid = Number(SensorArray[3]);\n\n\nvar currentDate = new Date();\n\n\nmsg.payload = {\n    soil: Soil,\n    water: Water,\n    temp: Temp,\n    humid: Humid,\n    date: currentDate\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 1060,
+        "wires": [
+            [
+                "ea37aaf4dd24f468",
+                "3082530b96546d1e",
+                "fa50cadca6f04b63",
+                "68fb2f35084ba2f7",
+                "4e74a04a7a5a2f8b",
+                "8b2f79799605b11d"
+            ]
+        ]
+    },
+    {
+        "id": "ea37aaf4dd24f468",
+        "type": "debug",
+        "z": "cec0b11c68e784c4",
+        "name": "Sensor Val",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "3082530b96546d1e",
+        "type": "mongodb3 in",
+        "z": "cec0b11c68e784c4",
+        "service": "_ext_",
+        "configNode": "0ad8da39221eb9f1",
+        "name": "Insert Sensor to DB",
+        "collection": "sensors",
+        "operation": "insertOne",
+        "x": 290,
+        "y": 1280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9b61fd2fe7033b6a",
+        "type": "mqtt out",
+        "z": "cec0b11c68e784c4",
+        "name": "Request Water",
+        "topic": "iot12/requestWater",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "fed5f8415e2c806e",
+        "x": 340,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "7faad3f9981c89c0",
+        "type": "mqtt in",
+        "z": "cec0b11c68e784c4",
+        "name": "Watering Warning",
+        "topic": "iot12/waterWarning",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "fed5f8415e2c806e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 1660,
+        "wires": [
+            [
+                "ef9debf24a6e3337",
+                "e510d56fb18b4ad9"
+            ]
+        ]
+    },
+    {
+        "id": "ef9debf24a6e3337",
+        "type": "debug",
+        "z": "cec0b11c68e784c4",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "e510d56fb18b4ad9",
+        "type": "http request",
+        "z": "cec0b11c68e784c4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://maker.ifttt.com/trigger/waterWarning/with/key/bLvS-wZC_P885one3ar9Zm?value1={{payload}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 510,
+        "y": 1780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3566f18444313baf",
+        "type": "mqtt in",
+        "z": "cec0b11c68e784c4",
+        "name": "Watering History",
+        "topic": "iot12/waterHistory",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "fed5f8415e2c806e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 2460,
+        "wires": [
+            [
+                "222f7d64d87f29be",
+                "a77d79739c460bfb",
+                "5c386ec2eea91298",
+                "2849155145fae128"
+            ]
+        ]
+    },
+    {
+        "id": "a30cd98bf7c2c318",
+        "type": "http request",
+        "z": "cec0b11c68e784c4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://maker.ifttt.com/trigger/waterAuto/with/key/bLvS-wZC_P885one3ar9Zm?value1={{payload}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 550,
+        "y": 2520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b2f249f784a1587b",
+        "type": "mongodb3 in",
+        "z": "cec0b11c68e784c4",
+        "service": "_ext_",
+        "configNode": "0ad8da39221eb9f1",
+        "name": "Water History",
+        "collection": "history",
+        "operation": "find.toArray",
+        "x": 460,
+        "y": 2160,
+        "wires": [
+            [
+                "95c50d146b8a1d28"
+            ]
+        ]
+    },
+    {
+        "id": "048cf97635a859a7",
+        "type": "debug",
+        "z": "cec0b11c68e784c4",
+        "name": "waterHistory",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 2160,
+        "wires": []
+    },
+    {
+        "id": "39e011d4c5453796",
+        "type": "ui_table",
+        "z": "cec0b11c68e784c4",
+        "group": "2cea9daebd0ec97a",
+        "name": "waterHistory",
+        "order": 9,
+        "width": 17,
+        "height": 5,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 1010,
+        "y": 2080,
+        "wires": []
+    },
+    {
+        "id": "95c50d146b8a1d28",
+        "type": "function",
+        "z": "cec0b11c68e784c4",
+        "name": "function 1",
+        "func": "const history = msg.payload;\nlet historyArray = [];\n\n// Convert each key in test into an object and push it to testArray\nfor (let key in history) {\n  historyArray.push(history[key]);\n}\n\nmsg.payload = historyArray;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 2160,
+        "wires": [
+            [
+                "048cf97635a859a7",
+                "39e011d4c5453796"
+            ]
+        ]
+    },
+    {
+        "id": "b2f91a48bd58bd89",
+        "type": "inject",
+        "z": "cec0b11c68e784c4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 2180,
+        "wires": [
+            [
+                "b2f249f784a1587b"
+            ]
+        ]
+    },
+    {
+        "id": "a77d79739c460bfb",
+        "type": "debug",
+        "z": "cec0b11c68e784c4",
+        "name": "Notification watering",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 2580,
+        "wires": []
+    },
+    {
+        "id": "2849155145fae128",
+        "type": "ui_text",
+        "z": "cec0b11c68e784c4",
+        "group": "2cea9daebd0ec97a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "Last time watering at: {{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": true,
+        "font": "Arial Black,Arial Black,Gadget,sans-serif",
+        "fontSize": "24",
+        "color": "#1e7b6c",
+        "x": 450,
+        "y": 2680,
+        "wires": []
+    },
+    {
+        "id": "7ccad69dde8f3b69",
+        "type": "mongodb3 in",
+        "z": "cec0b11c68e784c4",
+        "service": "_ext_",
+        "configNode": "0ad8da39221eb9f1",
+        "name": "",
+        "collection": "history",
+        "operation": "insert",
+        "x": 570,
+        "y": 2440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "222f7d64d87f29be",
+        "type": "function",
+        "z": "cec0b11c68e784c4",
+        "name": "function 7",
+        "func": "const date = msg.payload;\n\nmsg.payload = {\n    waterDate: date\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 2420,
+        "wires": [
+            [
+                "7ccad69dde8f3b69"
+            ]
+        ]
+    },
+    {
+        "id": "5c386ec2eea91298",
+        "type": "function",
+        "z": "cec0b11c68e784c4",
+        "name": "function 8",
+        "func": "const message = `Auto watering at: ${msg.payload} ` \n\nmsg.payload = message;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 2520,
+        "wires": [
+            [
+                "a30cd98bf7c2c318"
+            ]
+        ]
+    },
+    {
+        "id": "a77223c9787e6779",
+        "type": "ui_text",
+        "z": "cec0b11c68e784c4",
+        "group": "2cea9daebd0ec97a",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Watering History",
+        "format": "",
+        "layout": "row-spread",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#000000",
+        "x": 1020,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "f08beaa26da3d8ac",
+        "type": "ui_toast",
+        "z": "cec0b11c68e784c4",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Send watering request to system successfully",
+        "name": "",
+        "x": 570,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "2cea9daebd0ec97a",
+        "type": "ui_group",
+        "name": "Dashboard",
+        "tab": "acb0e0e8c229a383",
+        "order": 3,
+        "disp": true,
+        "width": "17",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e61b7c40b059ea4c",
+        "type": "ui_group",
+        "name": "LogIn",
+        "tab": "acb0e0e8c229a383",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0ad8da39221eb9f1",
+        "type": "mongodb3",
+        "uri": "mongodb+srv://admin:111223@iot-cluster.m8gffii.mongodb.net/iot?retryWrites=true&w=majority",
+        "name": "MongoDB",
+        "options": "",
+        "parallelism": "-1"
+    },
+    {
+        "id": "fed5f8415e2c806e",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "acb0e0e8c229a383",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "home",
+        "disabled": false,
+        "hidden": false
+    }
+]
